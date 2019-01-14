@@ -1,52 +1,18 @@
-module.exports = {
-  development: {
-    client: 'pg',
-    connection: {
-      host : '127.0.0.1',
-      user : '[db_username]',
-      password : '[db_password]',
-      database : '[db_name]',
-      charset: 'utf8'
-    },
-    migrations: {
-      directory: __dirname + '/db/migrations',
-    },
-    seeds: {
-      directory: __dirname + '/db/seeds'
-    }
-  },
+require('dotenv').config()
 
-  staging: {
-    client: 'pg',
-    connection: {
-      host : '127.0.0.1',
-      user : '[db_username]',
-      password : '[db_password]',
-      database : '[db_name]',
-      charset: 'utf8'
-    },
-    migrations: {
-      directory: __dirname + '/db/migrations',
-    },
-    seeds: {
-      directory: __dirname + '/db/seeds'
-    }
+module.exports = require('knex')({
+  client: 'pg',
+  connection: {
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    database: process.env.DB_NAME,
+    ssl:true
   },
-
-  production: {
-    client: 'pg',
-    connection: {
-      host : '127.0.0.1',
-      user : '[db_username]',
-      password : '[db_password]',
-      database : '[db_name]',
-      charset: 'utf8'
-    },
-    migrations: {
-      directory: __dirname + '/db/migrations',
-    },
-    seeds: {
-      directory: __dirname + '/db/seeds'
-    }
+  migrations: {
+    directory: __dirname + '/db/migrations',
+  },
+  seeds: {
+    directory: __dirname + '/db/seeds'
   }
-};
+});
