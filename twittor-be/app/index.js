@@ -5,7 +5,7 @@ const app = express()
 app.use(bodyParser.json())
 
 app.use('/', [
-    require('./tweets/tweets.routes')
+    require('./server/tweets/tweets.routes')
 ])
 
 module.exports = app

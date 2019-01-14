@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-module.exports = require('knex')({
+module.exports = {
   client: 'pg',
   connection: {
     host: process.env.DB_HOST,
@@ -15,4 +15,4 @@ module.exports = require('knex')({
   seeds: {
     directory: __dirname + '/db/seeds'
   }
-});
+};
