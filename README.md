@@ -1,2 +1,1 @@
-# twittor
-An overengineered twitter clone
+A boilerplate code to mixes some nodejs technologies
